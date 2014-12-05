@@ -24,23 +24,35 @@
     <div class="content wrapper">
     	<h1>Welcome to JG School</h1>	
     	<p>Every week we have a volunteer talking about something related to our field.</p>
+    	<nav>
+    		<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#/events">More Events</a></li>
+					<li><a href="#/blog">Blog</a></li>					
+				</ul>
+			</nav>
     	<div ng-controller="LessonController">
-				<table>
-					<tr>
-						<th>Name</th>
-						<th>About</th>
-						<th>Description</th>
-						<th>When</th>
-						<th>Where</th>
-					</tr>
-					<tr ng-repeat="lesson in lessons">
-						<td >{{lesson.name}}</td>
-						<td >{{lesson.about}}</td>
-						<td >{{lesson.description}}</td>
-						<td >{{lesson.date}}</td>
-						<td >{{lesson.where}}</td>						
-					</tr>
-				</table>
+				<h2>Events this month</h2>
+					<form>
+						<label for="filter-event">Filter:</label>
+						<input ng-model="filterEvent" type="text" id="filterEvents"/>
+					</form>
+					<table>
+						<tr>
+							<th ng-click="order = 'name'">Name</th>
+							<th ng-click="order = 'about'">About</th>
+							<th ng-click="order = 'description'">Description</th>
+							<th ng-click="order = 'when'">When</th>
+							<th ng-click="order = 'where'">Where</th>
+						</tr>
+						<tr ng-repeat="lesson in lessons | filter: filterEvent | orderBy: order">
+							<td >{{lesson.name}}</td>
+							<td >{{lesson.about}}</td>
+							<td >{{lesson.description}}</td>
+							<td >{{lesson.date}}</td>
+							<td >{{lesson.where}}</td>						
+						</tr>
+					</table>
     	</div>
     </div>
     <footer></footer>
