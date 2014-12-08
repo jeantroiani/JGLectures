@@ -24,11 +24,11 @@
     <div class="content wrapper">
     	<h1>Welcome to JG School</h1>	
     	<p>Every week we have a volunteer talking about something related to our field.</p>
-    	<nav>
+    	<nav class="navbar">
     		<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="#/events">More Events</a></li>
-					<li><a href="#/blog">Blog</a></li>					
+					<li class="pure-button"><a href="#">Home</a></li>
+					<li class="pure-button"><a href="#/events">More Events</a></li>
+					<li class="pure-button"><a href="#/blog">Blog</a></li>					
 				</ul>
 			</nav>
     	<div ng-controller="LessonController">
@@ -42,13 +42,13 @@
 					</select>
 					<table>
 						<tr>
-							<th ng-click="order = 'name'">Name</th>
-							<th ng-click="order = 'lesson'">About</th>
-							<th ng-click="order = 'description'">Description</th>
-							<th ng-click="order = 'date'">When</th>
-							<th ng-click="order = 'where'">Where</th>
+							<th ng-click="sort('name')">Name</th>
+							<th ng-click="sort('lesson')">About</th>
+							<th ng-click="sort('description')">Description</th>
+							<th ng-click="sort('date')">When</th>
+							<th ng-click="sort('where')">Where</th>
 						</tr>
-						<tr ng-repeat="lesson in lessons | filter: filtering()  | orderBy: order : reverse=!reverse">
+						<tr ng-repeat="lesson in lessons | filter: filtering()  | orderBy:orderBy:reverse">
 							<td >{{lesson.name}}</td>
 							<td >{{lesson.lesson}}</td>
 							<td >{{lesson.description}}</td>
@@ -58,10 +58,12 @@
 					</table>
     	</div>
     </div>
+<!--	<div ng-view></div>-->
     <footer></footer>
 </body>
     <script src="scripts/angular.js"></script>
     <script src="scripts/script.js"></script>
+    <script src="scripts/angular-route.js"></script>
     <script src="scripts/controllers/lessonList.js"></script>
 
 </html>

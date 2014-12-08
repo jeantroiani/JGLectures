@@ -1,3 +1,3 @@
-(function(angular){
-	angular.module("givingLesson", [])
+(function (angular) {
+	angular.module("givingLesson", ["ngRoute"]);
 }(window.angular));

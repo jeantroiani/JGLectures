@@ -61,3 +61,6 @@ select,
 form {
   display: inline-block;
 }
+nav ul li {
+  display: inline-block;
+}
