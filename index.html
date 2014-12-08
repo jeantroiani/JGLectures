@@ -34,20 +34,23 @@
     	<div ng-controller="LessonController">
 				<h2>Events this month</h2>
 					<form>
-						<label for="filter-event">Filter:</label>
-						<input ng-model="filterEvent" type="text" id="filterEvents"/>
+						<label for="filterEvents">Filter:</label>
+						<input ng-model="filterEvents" type="text" id="filterEvents"/>		
 					</form>
+					<select ng-model="filterby" >
+						<option ng-repeat="head in columns" value={{head}}>{{head}}</option>
+					</select>
 					<table>
 						<tr>
 							<th ng-click="order = 'name'">Name</th>
-							<th ng-click="order = 'about'">About</th>
+							<th ng-click="order = 'lesson'">About</th>
 							<th ng-click="order = 'description'">Description</th>
-							<th ng-click="order = 'when'">When</th>
+							<th ng-click="order = 'date'">When</th>
 							<th ng-click="order = 'where'">Where</th>
 						</tr>
-						<tr ng-repeat="lesson in lessons | filter: filterEvent | orderBy: order">
+						<tr ng-repeat="lesson in lessons | filter: filtering()  | orderBy: order : reverse=!reverse">
 							<td >{{lesson.name}}</td>
-							<td >{{lesson.about}}</td>
+							<td >{{lesson.lesson}}</td>
 							<td >{{lesson.description}}</td>
 							<td >{{lesson.date}}</td>
 							<td >{{lesson.where}}</td>						

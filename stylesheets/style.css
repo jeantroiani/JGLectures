@@ -57,3 +57,7 @@ p {
   padding: none;
   margin: none;
 }
+select,
+form {
+  display: inline-block;
+}
