@@ -1,0 +1,25 @@
+<h2>Events this month</h2>
+		<form>
+			<label for="filterEvents">Filter:</label>
+			<input ng-model="filterEvents" type="text" id="filterEvents"/>		
+		</form>
+		<select ng-model="filterby" >
+			<option ng-repeat="head in columns" value={{head}}>{{head}}</option>
+		</select>
+		<table>
+			<tr>
+				<th ng-click="sort('name')">Name</th>
+				<th ng-click="sort('lesson')">About</th>
+				<th ng-click="sort('description')">Description</th>
+				<th ng-click="sort('date')">When</th>
+				<th ng-click="sort('where')">Where</th>
+			</tr>
+			<tr ng-repeat="lesson in lessons | filter: filtering()  | orderBy:orderBy:reverse">
+				<td >{{lesson.name}}</td>
+				<td >{{lesson.lesson}}</td>
+				<td >{{lesson.description}}</td>
+				<td >{{lesson.date}}</td>
+				<td >{{lesson.where}}</td>						
+			</tr>
+		</table>
+

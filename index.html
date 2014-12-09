@@ -30,40 +30,18 @@
 					<li class="pure-button"><a href="#/events">More Events</a></li>
 					<li class="pure-button"><a href="#/blog">Blog</a></li>					
 				</ul>
-			</nav>
-    	<div ng-controller="LessonController">
-				<h2>Events this month</h2>
-					<form>
-						<label for="filterEvents">Filter:</label>
-						<input ng-model="filterEvents" type="text" id="filterEvents"/>		
-					</form>
-					<select ng-model="filterby" >
-						<option ng-repeat="head in columns" value={{head}}>{{head}}</option>
-					</select>
-					<table>
-						<tr>
-							<th ng-click="sort('name')">Name</th>
-							<th ng-click="sort('lesson')">About</th>
-							<th ng-click="sort('description')">Description</th>
-							<th ng-click="sort('date')">When</th>
-							<th ng-click="sort('where')">Where</th>
-						</tr>
-						<tr ng-repeat="lesson in lessons | filter: filtering()  | orderBy:orderBy:reverse">
-							<td >{{lesson.name}}</td>
-							<td >{{lesson.lesson}}</td>
-							<td >{{lesson.description}}</td>
-							<td >{{lesson.date}}</td>
-							<td >{{lesson.where}}</td>						
-						</tr>
-					</table>
-    	</div>
+			</nav>  
+			<div ng-view></div>
     </div>
-<!--	<div ng-view></div>-->
     <footer></footer>
-</body>
     <script src="scripts/angular.js"></script>
-    <script src="scripts/script.js"></script>
     <script src="scripts/angular-route.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/home.js"></script>
     <script src="scripts/controllers/lessonList.js"></script>
+    <script src="scripts/controllers/blog.js"></script>
+    
+</body>
 
 </html>
