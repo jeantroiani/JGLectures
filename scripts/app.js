@@ -3,16 +3,16 @@
 	angular.module("givingLesson").config(function ($routeProvider) {
 		$routeProvider
 			.when("/", {
-				templateUrl: "../views/home.html",
 				controller: "homeController"
+				templateUrl: "../views/home.html",
 			})
 			.when("/events", {
-				templateUrl: "../views/lessonList.html",
 				controller: "lessonController"
+				templateUrl: "../views/lessonList.html",
 			})
 			.when("/blog", {
-				templateUrl: "../views/blog.html",
 				controller: "blogController"
+				templateUrl: "../views/blog.html",
 			})
 			.otherwise({ redirectTo: "#/404.html",
 									templateUrl: "../views/404.html"});

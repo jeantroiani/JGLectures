@@ -5,7 +5,8 @@
 		factory.getLessons = function () {
 			return lessons;
 		};
+		return factory;
 	};
-	
-	
+
+		angular.module("givingLessons").factory("lessonFactory",lessonFactory);
 }());
